@@ -44,10 +44,11 @@ tasks {
         if (hasProperty("dev") || System.getenv("DEV") != null) {
             tasks.withType(xyz.jpenilla.runtask.task.AbstractRun::class) {
                 val jdkVersion: String by project
-                javaLauncher = javaToolchains.launcherFor {
-                    vendor = JvmVendorSpec.JETBRAINS
-                    languageVersion = JavaLanguageVersion.of(jdkVersion)
-                }
+                javaLauncher =
+                    javaToolchains.launcherFor {
+                        vendor = JvmVendorSpec.JETBRAINS
+                        languageVersion = JavaLanguageVersion.of(jdkVersion)
+                    }
                 jvmArgs("-XX:+AllowEnhancedClassRedefinition")
             }
         }

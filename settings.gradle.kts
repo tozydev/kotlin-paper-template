@@ -8,7 +8,11 @@ rootProject.name = "paper-template"
 
 subproject("plugin", "paperPlugin")
 
-fun subproject(module: String, dir: String = module, prefix: String = "${rootProject.name}-") {
+fun subproject(
+    module: String,
+    dir: String = module,
+    prefix: String = "${rootProject.name}-",
+) {
     val name = "$prefix$module"
     include(name)
     project(":$name").projectDir = file(dir)
